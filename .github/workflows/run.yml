@@ -3,11 +3,11 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, closed]
+    types: [closed]
 
 jobs:
   Run:
-    if: startsWith(github.head_ref, 'tagpr-from-') == false && github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
